@@ -51,16 +51,17 @@ print endpoints
 
 i = 0
 countjes = 0
-cach = {}
+
 while i < range(len(endpoints) - 1):
     try:
+        cach = {}
         ekte_endpoints[countjes] = {}
         ekte_endpoints[countjes][endpoints[i][0]] = []
-        print endpoints[i][0], endpoints[i][1]
         for j in range(int(endpoints[i][1])):
+            print endpoints[i + j + 1][0], endpoints[i + j + 1][1]
             cach[endpoints[i + j + 1][0]] = endpoints[i + j + 1][1]
         ekte_endpoints[countjes][endpoints[i][0]] \
-                .append(cach)
+            .append(cach)
         i = i + int(endpoints[i][1]) + 1
         countjes += 1
     except IndexError:
