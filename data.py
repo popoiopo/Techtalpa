@@ -58,10 +58,9 @@ while i < range(len(endpoints) - 1):
         ekte_endpoints[countjes][endpoints[i][0]] = []
         print endpoints[i][0], endpoints[i][1]
         for j in range(int(endpoints[i][1])):
-            ekte_endpoints[countjes][endpoints[i][0]] \
-                .append(endpoints[i + j + 1][1])
-            print ekte_endpoints, i, j, countjes
-        print i, int(endpoints[i][1]), "regel 63"
+            cach[endpoints[i + j + 1][0]] = endpoints[i + j + 1][1]
+        ekte_endpoints[countjes][endpoints[i][0]] \
+                .append(cach)
         i = i + int(endpoints[i][1]) + 1
         countjes += 1
     except IndexError:
