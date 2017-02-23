@@ -11,6 +11,19 @@ class Request(object):
         self.amount = amount
         self.urgency = None
 
+class Cache(object):
+    def __init__(self, capacity):
+        self.capacity = capacity
+        self.videos = []
+        self.currentCapacity = return calculateCacheCapacity(videos)
+
+def calculateCacheCapacity:
+    size = 0
+    for i in videoArray:
+        size = size + videoArray[i]
+    return size
+                
+# Split endpoint data and request data        
 endPointDatalist = []
 requestDatalist = []
 
@@ -25,12 +38,21 @@ print endPointDatalist
 print requestDatalist
 
 
-requestObjectList = []
+# get request objects
+def generateRequests:
+    requestObjectList = []
 
-for request in requestDatalist:
-    reqObj = Request(request[0], request[1], request[2])
-    requestObjectList.append(reqObj)
-# loop over de lijst en stop elk onderdeeltje in een object
-        
-print requestObjectList
+    for request in requestDatalist:
+        reqObj = Request(request[0], request[1], request[2])
+        requestObjectList.append(reqObj)
+    # loop over de lijst en stop elk onderdeeltje in een object
+            
+    return requestObjectList
 
+# generate cache objects
+def generateCaches:
+    cacheList = []
+    for cache in range(0, 9)
+        cacheObj = Cache(100)
+        cacheList.append(cacheObj)
+    return cacheList
