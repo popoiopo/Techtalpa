@@ -3,14 +3,6 @@
 import fileinput
 import sys
 
-
-class Request(object):
-    def __init__(self, amount, video, endpoint):
-        self.videoId = video
-        self.endpoints = endpoint
-        self.amount = amount
-        self.urgency = None
-
 endPointDatalist = []
 requestDatalist = []
 
@@ -34,3 +26,13 @@ for request in requestDatalist:
         
 print requestObjectList
 
+
+class Request(object):
+	"""
+	Represents a request
+	"""
+    def __init__(self, amount, video, endpoint):
+        self.video_id = video
+        self.endpoint = endpoint
+        self.amount = amount
+        self.urgency = None
