@@ -5,7 +5,7 @@ import sys
 
 
 class Request(object):
-    def __init__(self, amount, video, endpoint):
+    def __init__(self, video, endpoint, amount):
         self.videoId = video
         self.endpoints = endpoint
         self.amount = amount
@@ -15,9 +15,9 @@ class Cache(object):
     def __init__(self, capacity):
         self.capacity = capacity
         self.videos = []
-        self.currentCapacity = return calculateCacheCapacity(videos)
+        self.currentCapacity = calculateCacheCapacity(videos)
 
-def calculateCacheCapacity:
+def calculateCacheCapacity():
     size = 0
     for i in videoArray:
         size = size + videoArray[i]
@@ -31,34 +31,60 @@ requestDatalist = []
 
 for line in sys.stdin:
     # split line on space starting the 3rd line
-    if line.count(" ") > 4
+    if line.count(" ") > 4:
         generaldata = line.split()
     if line.count(" ") == 4:
         videoArray = line.split()
     if line.count(" ") ==  1:
-        endPointDatalist.append(line)
+        endPointDatalist.append(line.split())
     if line.count(" ") == 2:
-        requestDatalist.append(line)
-        
-print endPointDatalist
-print requestDatalist
+        requestDatalist.append(line.split())
 
+def generateEndpoints():
 
+    endpoints = endPointDatalist
+    ekte_endpoints = {}
+    i = 0
+    countjes = 0
+    cach = {}
+    while i < range(len(endpoints) - 1):
+        try:
+            ekte_endpoints[countjes] = {}
+            ekte_endpoints[countjes][endpoints[i][0]] = []
+            print endpoints[i][0], endpoints[i][1]
+            for j in range(int(endpoints[i][1])):
+                cach[endpoints[i + j + 1][0]] = endpoints[i + j + 1][1]
+            ekte_endpoints[countjes][endpoints[i][0]] \
+                    .append(cach)
+            i = i + int(endpoints[i][1]) + 1
+            countjes += 1
+        except IndexError:
+            break
+    
+    return ekte_endpoints
+    
+
+actualEndPointList = generateEndpoints
+print actualEndPointList
+    
 # get request objects
-def generateRequests:
+def generateRequests():
     requestObjectList = []
 
     for request in requestDatalist:
-        reqObj = Request(request[0], request[1], request[2])
+        print request[1]
+        indexkey = request[1]
+        reqObj = Request(request[0], actualEndPointList[indexkey], request[2])
         requestObjectList.append(reqObj)
-    # loop over de lijst en stop elk onderdeeltje in een object
-            
+    print requestObjectList
     return requestObjectList
 
 # generate cache objects
-def generateCaches:
+def generateCaches():
     cacheList = []
-    for cache in range(0, 9)
+    for cache in range(0, 9):
         cacheObj = Cache(100)
         cacheList.append(cacheObj)
     return cacheList
+
+generateRequests()
