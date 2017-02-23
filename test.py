@@ -25,11 +25,15 @@ class Request(object):
 	"""
 	Represents a request
 	"""
-	def __init__(self, amount, video, endpoint, ):
+	def __init__(self, amount, video, endpoint):
 		self.video_id = video
 		self.amount = amount
+
+		# must be an endpoint object, so we can acces the latency to base
 		self.endpoint = endpoint
-		self.urgency = #latency naar base * #
+		
+		# calculate urgency of request
+		self.urgency = self.endpoint.latency_to_base * self.amount
 
 class Endpoint(object):
 	"""
@@ -37,5 +41,5 @@ class Endpoint(object):
 	"""
 	def __init__(self, latency, connections):
 		self.latency_to_base = latency
-		self.connections = []
+		self.connections = {}
 
