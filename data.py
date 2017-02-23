@@ -1,8 +1,9 @@
-import csv
+# import python skills
+# cat file.txt | python script.py |
+import sys
+lijst = []
+for line in sys.stdin:
 
-
-with open('me_at_the_zoo.in') as csvfile:
-        file = csv.DictReader(csvfile)
-
-        for row in file:
-          print row['100 10 100 10 100']
+    # split line on space starting the 3rd line
+    lijst.append(line.split())
+print lijst[0]
