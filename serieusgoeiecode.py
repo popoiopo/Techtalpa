@@ -23,12 +23,18 @@ def calculateCacheCapacity:
         size = size + videoArray[i]
     return size
                 
-# Split endpoint data and request data        
+# Split endpoint data and request data
+generaldata = None
+videoArray = None         
 endPointDatalist = []
 requestDatalist = []
 
 for line in sys.stdin:
     # split line on space starting the 3rd line
+    if line.count(" ") > 4
+        generaldata = line.split()
+    if line.count(" ") == 4:
+        videoArray = line.split()
     if line.count(" ") ==  1:
         endPointDatalist.append(line)
     if line.count(" ") == 2:
