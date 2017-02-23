@@ -67,7 +67,7 @@ while i < range(len(endpoints) - 1):
     except IndexError:
         break
 
-print ekte_endpoints
+print ekte_endpoints[4]
 
 
 # print lijst[2][1]
